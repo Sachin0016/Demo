@@ -1,0 +1,472 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~font-awesome/css/font-awesome.css";
+
+@font-face {
+  font-family: 'roboto';
+  src: url("./assets/fonts/Roboto-Regular.ttf");
+}
+
+:root {
+  --size-13: 13px;
+  --size-10: 10px;
+  --nav-height: 60px;
+  --footer-height: 60px;
+  --sidebar-width: 201px;
+  --logo-bg-blue: #1f96f4;
+  --black: #000000;
+  --footer-bg: #F2F2F2;
+}
+
+body {
+  font-family: 'roboto' !important;
+  font-size: 13px !important;
+  color: #000000 !important;
+}
+
+.pl-2p {
+  padding-left: 2px;
+}
+
+.pt-10 {
+  padding-top: 10px;
+}
+
+.pt-12 {
+  padding-top: 12px;
+}
+
+.pt-15 {
+  padding-top: 15px;
+}
+
+.pr-30 {
+  padding-right: 30px;
+}
+
+.pr-45 {
+  padding-right: 45px;
+}
+
+.pl-35 {
+  padding-left: 35px;
+}
+
+.mt-80 {
+  margin-top: 80px;
+}
+
+.pagination {
+  border-radius: 3px;
+}
+
+.table td,
+.table th {
+  border-top: none;
+}
+
+.table thead th {
+  border-bottom: none;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #F2F2F2;
+}
+
+.table-hover tbody tr:hover {
+  color: #000000;
+  background-color: #F2F2F2;
+}
+
+.pd-left-2 {
+  padding-left: 2px;
+}
+
+.bg-white {
+  background: var(--white);
+}
+
+.page-wrapper {
+  overflow: hidden;
+}
+
+.bg-light {
+  background-color: var(--footer-bg) !important;
+}
+
+.btn-outline-secondary {
+  color: #333333;
+  border-color: #BDBDBD;
+}
+
+.table {
+  color: #000000;
+}
+
+p,
+label,
+button {
+  font-size: var(--size-13) !important;
+}
+
+.table-responsive tr {
+  height: 25px;
+}
+
+.content {
+  padding-left: var(--sidebar-width);
+}
+
+.content .table-responsive table th a {
+  font-size: var(--size-10);
+}
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* for custom scrollbar for webkit browser*/
+
+/*------Check Box Styles Start------*/
+
+.custom-checkbox .tick {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox .tick input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-checkbox {
+  padding-top: 20px;
+}
+
+.custom-checkbox .tick .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  background-color: var(--white);
+  border: 1px solid #e0e0e0;
+}
+
+.custom-checkbox .tick:hover input~.checkmark {
+  background-color: var(--white);
+}
+
+.custom-checkbox .tick input:checked~.checkmark {
+  background-color: var(--white);
+}
+
+.custom-checkbox .tick .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox .tick input:checked~.checkmark:after {
+  display: block;
+}
+
+.custom-checkbox .tick .checkmark:after {
+  left: 6px;
+  top: 1px;
+  width: 7px;
+  height: 13px;
+  border: solid var(--black);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/*------Check Box Styles Start------*/
+
+.menu-sidebar .footer-box {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 40px;
+}
+
+.menu-sidebar .footer-box P {
+  line-height: 1;
+  color: #000;
+}
+
+.menu-sidebar .footer-box img {
+  widows: 14px;
+  height: 12px;
+}
+
+.form-control {
+  border-radius: 0;
+  border: 1px solid #E0E0E0;
+  padding: 4px 7px;
+  font-size: 13px;
+  color: #000000;
+}
+
+/*------Side Menu Styles Start------*/
+
+.menu-sidebar {
+  width: var(--sidebar-width);
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: var(--white);
+  overflow-y: auto;
+  height: 100vh;
+  z-index: 1000;
+  border-right: 1px solid #e5e5e5;
+}
+
+.menu-sidebar .logo {
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu-sidebar .logo {
+  background-color: var(--logo-bg-blue);
+}
+
+.menu-sidebar .navbar-sidebar li a:hover {
+  text-decoration: none;
+  background: var(--logo-bg-blue);
+  color: var(--white) !important;
+}
+
+.menu-sidebar .navbar-sidebar .active {
+  text-decoration: none;
+  background: var(--logo-bg-blue);
+  color: white !important;
+}
+
+.menu-sidebar .navbar-sidebar .active span.inbox-num {
+  text-decoration: none;
+  background: var(--white);
+  color: var(--black) !important;
+}
+
+.menu-sidebar .navbar-sidebar li :hover+span.inbox-num {
+  text-decoration: none;
+  background: var(--white);
+  color: var(--black) !important;
+}
+
+.menu-sidebar .navbar-sidebar .navbar-list li a {
+  font-size: var(--size-13);
+  color: var(--black);
+  display: block;
+  padding: 10px 12px;
+  border-bottom: 1px solid #E0E0E0;
+  text-decoration: none;
+}
+
+.menu-sidebar .navbar-sidebar .navbar-list .active a {
+  font-size: var(--size-13);
+  color: white;
+  display: block;
+  padding: 10px 12px;
+  border-bottom: 1px solid #E0E0E0;
+  text-decoration: none;
+}
+
+.menu-sidebar .navbar-sidebar .navbar-list .inbox-num {
+  position: absolute;
+  top: 20%;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  background: #E20512;
+  line-height: 26px;
+  font-size: var(--size-13);
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.menu-sidebar .navbar-sidebar .navbar-list {
+  border-top: 1px solid #E0E0E0;
+}
+
+.menu-sidebar .navbar-sidebar .navbar-list li {
+  position: relative;
+  cursor: pointer;
+}
+
+/*------Side Menu Styles End------*/
+
+/*------Header Styles Start------*/
+
+.header-desktop {
+  background: #F2F2F2;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: var(--sidebar-width);
+  height: var(--nav-height);
+  z-index: 3;
+}
+
+/*------Header Styles End------*/
+
+/*------Main Content Styles Start------*/
+
+.main-Content {
+  height: calc(100vh - calc(var(--nav-height) + var(--footer-height)));
+}
+
+.main-Content table {
+  text-align: left;
+  position: relative;
+  border-collapse: collapse;
+}
+
+.main-Content th {
+  padding: 15px 15px 5px 15px;
+}
+
+.main-Content td {
+  padding: 3px 15px;
+}
+
+.main-Content th {
+  background: white;
+  position: sticky;
+  top: 0px;
+}
+
+.main-Content table svg {
+  fill: green;
+}
+
+.main-Content table svg:hover {
+  fill: purple;
+}
+
+/*------Main Content Styles End------*/
+
+/*------Footer Styles Start------*/
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: calc(100% - var(--sidebar-width));
+  z-index: 999;
+  height: var(--footer-height);
+}
+
+.footer label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.footer .btn-group {
+  width: 90px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.footer svg {
+  fill: #4F4F4F;
+}
+
+.footer svg:hover {
+  fill: rgb(255, 255, 255);
+}
+
+/*------Footer Styles End------*/
+
+/*-------------------------------------------------Common Css End--------------------------------------------------*/
+
+.ng-select.ng-select-single .ng-select-container {
+  height: 30px;
+}
+
+.ng-select .ng-select-container {
+  min-height: 30px !important;
+}
+/* .dp-picker-input{
+  width: 80px !important;
+  padding: 0px 12px !important;
+  border: 1px solid #e0e0e0 !important;
+  height: 30px !important;
+} */
+dp-day-calendar.dp-material .dp-current-day {
+  border: none !important;
+}
+
+.ngx-pagination li {
+  background: #FFFFFF;
+/* border: 1px solid #BDBDBD; */
+ border: 1px solid #dee2e6; 
+box-sizing: border-box;
+border-radius: 3px;
+margin-right: 0 !important;
+
+ }
+ .ngx-pagination li:hover {
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+  color: #000000 !important;
+}
+
+.ngx-pagination .pagination-previous.disabled::before{
+  content:url("assets/images/left.svg") !important;
+  margin-right: 0.1rem !important;
+  color: #cacaca !important;
+}
+.ngx-pagination .pagination-next a::after {
+  content:url("assets/images/left.svg") !important;
+  margin-left: 0rem !important;
+}
+.ngx-pagination .pagination-previous a::before{
+  content:url("assets/images/left.svg") !important;
+  margin-right: 0.1rem !important;
+}
+.ngx-pagination .pagination-next.disabled::after{
+  content:url("assets/images/left.svg") !important;
+  margin-left: 0rem !important;
+}
+dp-date-picker.dp-material .dp-picker-input{
+  width: 80px !important;
+    padding: 0px 12px !important;
+    border: 1px solid #e0e0e0 !important;
+    height: 30px !important;
+
+}
+
+
+/* .ngx-pagination .current {
+  z-index: 1 !important;
+    color: #fff !important;
+    background-color: var(--logo-bg-blue) !important;
+    border-color: var(--logo-bg-blue) !important;
+} */
+
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

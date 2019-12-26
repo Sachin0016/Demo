@@ -1,0 +1,198 @@
+<div class="click_collect content">
+    <!-- MAIN CONTENT HEADER START-->
+    <header class="header-desktop">
+        <div class="d-flex">
+            <div class="d-flex">
+                <div class="pl-35 pt-15">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu1">Short-picks</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="text-right pl-35 pt-15">
+                    <label class="py-1 form-control-label">From:</label>
+                </div>
+                <div class="px-2 pt-15">
+                    <dp-date-picker [(ngModel)]="selectedFrom" theme="dp-material" class="form-control-textbox" 
+                    id="fromDate" [config]="datePickerFromConfig" (onChange)="onSelectedFromDate($event)"></dp-date-picker>  
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="text-right pl-35 pt-15">
+                    <label class="py-1 form-control-label">To:</label>
+                </div>
+                <div class="px-2 pt-15">
+                    <dp-date-picker [(ngModel)]="selectedTo" theme="dp-material" 
+                    class="form-control-textbox" id="toDate" [config]="datePickerToConfig" 
+                    (onChange)="onSelectedToDate($event)"></dp-date-picker>  
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="text-right pl-35 pt-15">
+                    <label class="py-1 form-control-label">Status:</label>
+                </div>
+                <div class="px-2 pt-15">
+                    <span class="badge badge-light">{{statusItem}}
+                        <i *ngIf="isAllCancel" class="fa fa-times" (click)="resetStatus()"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="ml-auto">
+                <nav aria-label="Page navigation">
+                    <pagination-controls class="pagination pt-12 pr-30" (pageChange)="orderPaginate = $event"
+                        previousLabel="" nextLabel=""></pagination-controls>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- MAIN CONTENT HEADER END-->
+
+    <!-- Table Start-->
+    <div class="pt-10 mt-5">
+
+        <div class="form-group table-search">
+            <span class="fa fa-search form-control-feedback text-icon"></span>
+            <input type="text" class="form-control text-search" placeholder="Search by order id, name"
+                [(ngModel)]="SearchOrder">
+        </div>
+        <div class="table-responsive main-Content text-nowrap">
+            <div class="table-one px-3">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr class="bg-white">
+                            <th>Order<span class="pl-1">&#8285;</span></th>
+                            <th>Customer Name<span class="pl-1">&#8285;</span></th>
+                            <th>Qty<span class="pl-1">&#8285;</span></th>
+                            <th>Picked<span class="pl-1">&#8285;</span></th>
+                            <th>Time<span class="pl-1 cursor-point" [ngbPopover]="popContentTimeZone"
+                                    placement="bottom">&#8285;</span></th>
+                            <ng-template #popContentTimeZone>
+                                <div>
+                                    <ul *ngFor="let timeZones of timeZone" class="time-status-ul">
+                                        <li class="time-status-li" (click)="getTimeStatus(timeZones.name)">
+                                            {{timeZones.name}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ng-template>
+                            <th>Put-Away<span class="pl-1">&#8285;</span></th>
+                            <th>Payment<span class="pl-1">&#8285;</span></th>
+                            <th>Picked by<span class="pl-1">&#8285;</span></th>
+                            <th>Status<span class="pl-1 cursor-point" [ngbPopover]="popContent"
+                                    placement="bottom">&#8285;</span></th>
+                            <ng-template #popContent>
+                                <div>
+                                    <ul *ngFor="let statusNot of statusNotification" class="status-ul">
+                                        <li  class="status-li" (click)="getStatus(statusNot.name)">{{statusNot.name}}
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </ng-template>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="clickCollectOrderList?.length > 0">
+                        <tr *ngFor="let orderItem of clickCollectOrderList | filter:SearchOrder
+                        | orderFilter:{orderStatus:statusItem,sapTime:timeStatus}
+                             | paginate: { itemsPerPage: 8, currentPage: orderPaginate }"
+                            (click)="getOrderID(orderItem.webOrderId)" class="row-one"
+                            [class.highlighted]="orderItem.webOrderId === orderID">
+                            <td>{{orderItem.webOrderId}}</td>
+                            <td>{{orderItem.customerName}}</td>
+                            <td>{{orderItem.totalOrderQty}}</td>
+                            <td>{{orderItem.qtyPicked}}</td>
+                            <td [class.rowTime]="orderItem?.sapTime">
+                                {{orderItem.sapBlackTime}}</td>
+                            <td>{{orderItem?.putAwayLocation || ''}}</td>
+                            <td>{{orderItem.paymentStatus ? 'Success' : 'Pending'}}</td>
+                            <td>{{orderItem.lastUpdatedUser}}</td>
+                            <td>{{orderItem?.orderStatus}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="(clickCollectOrderList | filter:SearchOrder 
+                | orderFilter:{orderStatus:statusItem,sapTime:timeStatus}
+                | paginate: { itemsPerPage: 8, currentPage: orderPaginate }
+                )?.length == 0"
+                 class="alert alert-info table-data-nofound">
+                    No records found...
+                </div>
+            </div>
+            <div class="table-two px-3">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr class="bg-white">
+                            <th>Article ID<span class="pl-1">&#8942;</span></th>
+                            <th>Description<span class="pl-1">&#8942;</span></th>
+                            <th>Department<span class="pl-1">&#8942;</span></th>
+                            <th>Picked<span class="pl-1">&#8942;</span></th>
+                            <th>Date-Time<span class="pl-1">&#8942;</span></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="clickCollectOrderListID?.length >0">
+                        <tr *ngFor="let orderItems of clickCollectOrderListID">
+                            <td>{{orderItems.article.articleId}}</td>
+                            <td>{{orderItems.article.articleDesc}}</td>
+                            <td>{{orderItems.article.articleGroup}}</td>
+                            <td>{{orderItems.qtyPicked}}</td>
+                            <td>{{orderItems.updatedAt|date: 'dd/MM/yyyy HH:ss'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="clickCollectOrderListID?.length == 0" class="alert alert-info table-data-nofound">
+                    No records found...
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Table End-->
+
+    <!-- Footer Start-->
+    <div class="bg-light footer text-center">
+        <div class="row pl-5">
+            <div class="btn-group">
+                <button class="btn btn-outline-secondary"><img src="assets/images/Xls.svg" alt="" /></button>
+                <button class="btn btn-outline-secondary"><img src="assets/images/pdf.svg" alt="" /></button>
+            </div>
+
+            <div class="ml-auto">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pt-15 pr-45">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <img src="assets/images/left.svg">
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">2 </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <img src="assets/images/right.svg">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Start-->
+
+</div>
+<!-- END MAIN CONTENT-->

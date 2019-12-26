@@ -1,0 +1,292 @@
+/*----------------------------------------Cycle Count Styles Start------------------------------------------*/
+
+/*------Cycle Count Header Styles Start------*/
+
+/* .dp-picker-input{
+  width: 80px !important;
+  padding: 0px 12px !important;
+  border: 1px solid #e0e0e0 !important;
+  height: 30px !important;
+} */
+
+.click_collect .header-desktop .form-control-textbox {
+    width: 80px;
+    padding: 0px 12px;
+    border: 1px solid #e0e0e0;
+    height: 30px;
+  }
+  
+  .click_collect .page-link {
+    position: relative;
+    display: block;
+    padding: .4rem .60rem;
+    height: 30px;
+    width: 30px;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #000000 !important;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+  }
+  
+  .click_collect .page-item.active .page-link {
+    z-index: 1;
+    color: #fff !important;
+    background-color: var(--logo-bg-blue);
+    border-color: var(--logo-bg-blue);
+  }
+  
+  .click_collect .page-item .page-link:hover {
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+    color: #000000 !important;
+  }
+  
+  /*------Cycle Count Header Styles End------*/
+  
+  /*------Cycle Count Table Styles Start------*/
+  
+  .table-one {
+    height: 250px;
+    border-bottom: 1px dashed #BDBDBD;
+  }
+  
+  .table-one table {
+    width: 60%;
+  }
+  
+  .table-two {
+    height: 320px;
+    overflow: auto;
+  }
+  
+  .click_collect .form-control-textbox {
+    width: 33px;
+    padding: 0px 12px;
+    background: #FFFFFF !important;
+   border: 1px solid #e0e0e0;
+    height: calc(1.5em + 3px);
+  }
+  
+  
+  .click_collect .form-control-shelf {
+    width: 75px;
+    height: calc(1.5em + 3px);
+    padding: 1px 2px;
+    font-size: var(--size-14);
+    color: var(--black);
+    border: 1px solid #e0e0e0;
+  }
+  
+  /*------Cycle Count Table Styles End------*/
+  
+  /*------Cycle Count Small Footer Start------*/
+  
+  .click_collect .footer-small {
+    position: fixed;
+    bottom: 60px;
+    width: calc(100% - var(--sidebar-width));
+    height: 33px;
+  }
+  
+  .click_collect .footer-small .bg-lights {
+    background: #F8F8F8;
+  }
+  
+  .click_collect .footer-small .custom-checkbox {
+    padding: 0px !important;
+  }
+  
+  .click_collect .footer-small .form-control-sm {
+    height: 25px;
+    width: 80px;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    background-color: var(--white);
+    background-clip: padding-box;
+    border: 1px solid #e0e0e0;
+    margin-top: 2px !important;
+  }
+  
+  .click_collect .footer-small label {
+    margin-bottom: 0rem;
+  }
+  
+  /*------Cycle Count Small Footer End------*/
+  
+  /*------Cycle Count Footer Styles Start------*/
+  
+  .click_collect .footer .close-change-button {
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .click_collect .footer .btn-print {
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: #27AE60;
+    border-color: #27AE60;
+  }
+  
+  .click_collect .footer .calculate-stock {
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 6px;
+    line-height: 1;
+  }
+  
+  .click_collect .footer .footer-time {
+    font-size: 9px;
+  }
+  
+  /*------Cycle Count Footer Styles End------*/
+
+  ul.nav.nav-tabs {
+    padding-top: 8px;
+}
+
+.table-data-nofound {
+  font-size: 0.9rem;
+  text-align: center;
+}
+.cursor-point{
+  cursor:pointer;
+}
+a.cursor-notfication {
+  font-size: 14px !important;
+  line-height: 2 !important;
+  text-decoration-line: none;
+  color: #000000;
+}
+label.cursor-notfication {
+  cursor: pointer;
+}
+label.cursor-notfication:hover{
+  background-color: #F2F2F2;
+}
+span.badge.badge-light {
+  font-size: 0.85rem;
+  padding: 8px 6px;
+}
+span.badge.badge-light i.fa.fa-times {
+  padding: 0px 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+  .textorder{
+  float: right;
+  border: none;
+  border-bottom: 2px solid #AEAEAE;
+  font-family: Arial,FontAwesome;
+  margin-right: 35px;
+  width: 206px;
+  }
+.row-one{
+  cursor: pointer;
+}
+ /* .table-hover tbody tr:hover{
+  color: #FFFFFF;
+  background-color: #1F96F4;
+} */
+/*
+.table>tbody>tr.active>td {
+  background: #123456;
+  color: #fff;
+}
+td.row-six :hover ::after {
+  color: #FFFFFF !important;
+} */
+.highlighted{
+  color: #FFFFFF !important;
+  background-color: #1F96F4  !important;
+}
+.rowTime{
+  color: red;
+}
+.highlighted .rowTime{
+  color: #FFFFFF !important;
+}
+
+
+.time-status-ul{
+  list-style: none;
+  padding-left: 0px;
+}
+ul.time-status-ul :hover {
+  background-color: #E6E6E6;
+  padding: 5px 5px;
+}
+ul.status-ul {
+  list-style: none;
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+li.status-li {
+  padding: 5px 0px;
+}
+ul.status-ul :hover {
+  background-color: #E6E6E6;
+  padding: 6px 15px;
+  cursor: pointer;
+}
+.alert.alert-info.table-data-nofound {
+  background: #F2F2F2;
+  padding: 0px 0px;
+  z-index: -1;
+}
+.input-group.input-group-unstyled input.form-control {
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+.input-group-unstyled .input-group-addon {
+  border-radius: 4px;
+  border: 0px;
+  background-color: transparent;
+}
+.table-search {
+  width: 23%;
+ float: right;
+ margin-bottom: 0;
+}
+.table-search .form-control {
+  padding-left: 1.75rem;
+}
+
+.table-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+input:focus, input.form-control.text-search :focus {
+  border:none !important;
+  border-bottom: 2px solid #D1D1D1 !important;
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+input.form-control.text-search {
+  border: none;
+  border-bottom: 2px solid #D1D1D1;
+  margin: 3px 0px;
+  width: 240px;
+}
